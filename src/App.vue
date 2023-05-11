@@ -53,9 +53,18 @@ export default {
         });
         this.userData = response.data;
 
+        if (this.userData['id_user'] > 0) {
+          console.log(this.userData['id_user'])
+        } else {
+          this.$swal({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Email o contraseña incorrecta.'
+          });
+        }
+
       } catch (error) {
         console.error(error);
-        // handle error
       } finally {
         this.loading = false;
       }
